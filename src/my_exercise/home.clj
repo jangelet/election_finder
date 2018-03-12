@@ -102,6 +102,7 @@
    [:form {:action "/search" :method "post"}
     (anti-forgery-field)
     [:p "Enter the address where you are registered to vote"]
+    [:div ]
     [:div
      [:label {:for "street-field"} "Street:"]
      [:input {:id "street-field"
@@ -121,8 +122,8 @@
      [:select {:id "state-field"
                :name "state"}
       [:option ""]
-      (for [state us-state/postal-abbreviations]
-        [:option {:value state} state])]
+      (for [state us-state/postal-abbreviations]            ;for every state in postal-abbreviations vector
+        [:option {:value state} state])]                    ;creates option for each state in vector, value set to state
      [:label {:for "zip-field"} "ZIP:"]
      [:input {:id "zip-field"
               :type "text"
